@@ -1,0 +1,29 @@
+version: '3'
+services:
+  mongodb:
+    build: ./database
+    ports:
+      - "27017:27017"
+    volumes: 
+      - mongo_data:/data/db
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
+    volumes: 
+    - ./server:/app
+    environment: 
+      FLASK_ENV: development
+    depends_on:
+      - mongodb
+  web:
+    build: ./frontend
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - ./frontend:/user/src/app
+    depends_on: 
+      - server
+
+volumes:
+  mongo_data:
