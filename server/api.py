@@ -29,11 +29,7 @@ def data():
     if not parameter:
         return "error: Parameter is required", 400
     
-    print("DO WE GET DB")
-    print(db)
     data = db.deviceDataFoo.find({"parameter": parameter, "type": "numeric"}).sort("timestamp", 1)
-    print("WHATS HERE")
-    print(data)
     return dumps(data)
 
 
