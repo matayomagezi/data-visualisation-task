@@ -14,7 +14,13 @@ Run docker-compose up in the root directory
 1. Start the Application:
 Run docker-compose up in the root directory
 
-2. Access the application in your browser at `http://127.0.0.1:3000`.
+2. Check that the application is running.
+
+To check the server: Go to check that flask server is up by going to `http://127.0.0.1:80` 
+
+To filter add `/data?parameter={parameter}` . pick parameter from json data
+
+Access the client in your browser at `http://127.0.0.1:3000`.
 
 To fetch particular data by parameter 
 add parameter name in the input box.

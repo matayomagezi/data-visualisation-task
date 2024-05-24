@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from bson.json_util import dumps
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})   # Enable CORS for all routes
+CORS(app)   # Enable CORS for all routes
 
 def get_db():
     client = MongoClient(host='mongodb',
@@ -19,7 +19,7 @@ def get_db():
 @app.route('/')
 def home():
     print("WORK PLEASE")
-    return "Assesment"
+    return "DataProphet Assesment"
 
 
 @app.route('/data' , methods=['GET'])
@@ -34,7 +34,7 @@ def data():
     data = db.deviceDataFoo.find({"parameter": parameter, "type": "numeric"}).sort("timestamp", 1)
     print("WHATS HERE")
     print(data)
-    return dumps(data, default=str)
+    return dumps(data)
 
 
 if __name__ == '__main__':
